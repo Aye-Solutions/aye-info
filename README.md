@@ -124,17 +124,18 @@ Welcome to the Aye Technology Overview! If you're considering joining us as an i
 
 **Multi-Cloud Strategy** We utilize a multi-cloud strategy to ensure high availability, redundancy, and geographical distribution, leveraging the best services from each provider to meet our diverse needs.
 
-**Tencent Cloud**
-
--   **What it is:** Tencent Cloud is a suite of cloud computing services provided by Tencent, offering a wide range of services from IaaS to SaaS.
--   **Why we use it:** For its robust services tailored for specific markets, and its seamless integration capabilities with various platforms.
--   **Learn More:** [Tencent Cloud Official Site](https://intl.cloud.tencent.com/)
-
 **Huawei Cloud**
 
 -   **What it is:** Huawei Cloud offers a powerful combination of physical and virtual solutions to cater to various business needs.
 -   **Why we use it:** For its innovative technologies, security assurances, and vast global infrastructure.
 -   **Learn More:** [Huawei Cloud Official Site](https://www.huaweicloud.com/intl/en-us/)
+
+**Google Cloud Platform (GCP)**
+
+-   **What it is:** GCP is a suite of cloud computing services that runs on the same infrastructure that Google uses internally for its end-user products, such as Google Search, YouTube, and more.
+-   **Why we use it:** For its state-of-the-art machine learning and AI tools, extensive global network, and commitment to sustainability.
+-   **Learn More:** [GCP Official Site](https://cloud.google.com/)
+
 
 **Alibaba Cloud**
 
@@ -142,11 +143,6 @@ Welcome to the Aye Technology Overview! If you're considering joining us as an i
 -   **Why we use it:** For its wide range of integrated services, scalability, and its strong presence in the APAC region.
 -   **Learn More:** [Alibaba Cloud Official Site](https://www.alibabacloud.com/)
 
-**Google Cloud Platform (GCP)**
-
--   **What it is:** GCP is a suite of cloud computing services that runs on the same infrastructure that Google uses internally for its end-user products, such as Google Search, YouTube, and more.
--   **Why we use it:** For its state-of-the-art machine learning and AI tools, extensive global network, and commitment to sustainability.
--   **Learn More:** [GCP Official Site](https://cloud.google.com/)
 
 **Docker**
 
@@ -188,13 +184,13 @@ Welcome to the Aye Technology Overview! If you're considering joining us as an i
 
 **Slack**
 
--   **What it is:** A communication platform offering a plethora of channels, direct messaging, and tools integrations.
+-   **What it is:** A communication platform offering many channels, direct messaging, and tools integrations.
 -   **Why we use it:** To facilitate team communication, discussions, and quick information sharing. Its integrations also allow us to get instant notifications from other tools we use.
 -   **Learn More:** [Slack Official Site](https://slack.com/)
 
 ## Thank You for Exploring Our Tech Stack!
 
-We're excited to have you onboard and to be a part of your learning journey. Our technology stack is a testament to our commitment to innovation and excellence. As you familiarize yourself with these tools, always remember that the real magic lies not just in the tools themselves, but in how we use them to bring solutions to life.
+We're excited to have you on board and to be a part of your learning journey. Our technology stack is a testament to our commitment to innovation and excellence. As you familiarize yourself with these tools, always remember that the real magic lies not just in the tools themselves, but in how we use them to bring solutions to life.
 
 For any queries, suggestions, or further discussions, please feel free to reach out to us at:
 
