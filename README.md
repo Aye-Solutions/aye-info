@@ -194,4 +194,9 @@ We're excited to have you on board and to be a part of your learning journey. Ou
 
 For any queries, suggestions, or further discussions, please feel free to reach out to us at:
 
-📧 **Email:** [hr@ayesolutions-sea.com](mailto:hr@ayesolutions-sea.com)
+📧 Primary Email: hr@ayesolutions-sea.com
+
+📨 CC: mabidi@ayesolutions-sea.com
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/company/aye-solutions-sdn-bhd/)
+
