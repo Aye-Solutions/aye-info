@@ -66,6 +66,11 @@ Welcome to the Aye Technology Overview! If you're considering joining us as an i
 -   **Why we use it:** To craft dynamic, component-based, and highly responsive web applications that deliver unparalleled user experiences.
 -   **Learn More:** [React Official Docs](https://reactjs.org/docs/getting-started.html)
 
+Next.js
+
+-   **What it is:** A React framework that enables functionalities such as server-side rendering and generating static websites for React-based web applications.
+-   **Why we use it:** For enhanced performance, SEO, and developer experience with features like fast refresh, built-in CSS support, and more. It simplifies the process of building React applications with best practices.
+-   **Learn More:** [NextJS Official Docs](https://nextjs.org/docs)
 ### Backend
 
 **Node.js & Express.js**
