@@ -2,7 +2,7 @@
 
 ![stack Cover](https://imgur.com/ouvTJ9D.jpg) 
 
- ![Build Status](https://img.shields.io/badge/Version-1.0-important) ![Build Status](https://img.shields.io/badge/Date-23--10--23-blue)
+ ![Build Status](https://img.shields.io/badge/Version-1.1-important) ![Build Status](https://img.shields.io/badge/Date-23--10--23-blue)
 
 Explore the technological backbone of Aye on our GitHub. Discover codes that power Aye's innovation and see how we're shaping the future of technology.
 
@@ -101,6 +101,12 @@ Next.js
 -   **Why we use it:** To write clean, maintainable, and efficient code for various applications, from web backends to data processing scripts.
 -   **Learn More:** [Python Official Docs](https://docs.python.org/3/)
 
+**Rust**
+
+-   **What it is:** A systems programming language focused on speed, memory safety, and parallelism. It's known for its unique approach to memory management without a garbage collector.
+-   **Why we use it:** To build high-performance, reliable software. Rust is ideal for applications where performance and safety are crucial, such as in embedded systems, operating systems, and large-scale systems with high concurrency requirements.
+-   **Learn More:** [Rust Official Docs](https://www.rust-lang.org/)
+    
 **FastAPI**
 
 -   **What it is:** A modern, fast (high-performance), web framework for building APIs with Python 3.7+ based on standard Python type hints.
