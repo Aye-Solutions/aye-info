@@ -4,7 +4,7 @@
 
  ![Build Status](https://img.shields.io/badge/Version-1.0-important) ![Build Status](https://img.shields.io/badge/Date-23--10--23-blue)
 
-Welcome to the Aye Technology Overview! If you're considering joining us as an intern, here's a glimpse into the exciting technologies we use. We believe in staying at the forefront of technology, and we'd love for you to be a part of our innovative journey.
+Explore the technological backbone of Aye on our GitHub. Discover codes that power Aye's innovation and see how we're shaping the future of technology.
 
 ## AI
 
