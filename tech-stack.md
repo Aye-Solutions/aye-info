@@ -205,7 +205,7 @@ We're excited to have you on board and to be a part of your learning journey. Ou
 
 For any queries, suggestions, or further discussions, please feel free to reach out to us at:
 
-📧 Primary Email: hr@ayesolutions-sea.com
+📧 Primary Email: hr@aye-ai.org
 
 📨 CC: mabidi@ayesolutions-sea.com
 
