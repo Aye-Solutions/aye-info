@@ -49,11 +49,11 @@ We're excited to have you onboard and to be a part of our exciting journey.
 
 For any queries, suggestions, or further discussions, please feel free to reach out to us at:
 
-📧 Primary Email:  [hr@ayesolutions-sea.com](mailto:hr@ayesolutions-sea.com)
+📧 Primary Email:  [hr@aye-ai.org](mailto:hr@aye-ai.org)
 
-📨 CC:  [mabidi@ayesolutions-sea.com](mailto:mabidi@ayesolutions-sea.com)
+📨 CC:  [mabidi@aye-ai.org](mailto:mabidi@aye-ai.org)
 
-📨 CC:  [ylim@ayesolutions-sea.com](mailto:ylim@ayesolutions-sea.com)
+📨 CC:  [ylim@aye-ai.org](mailto:ylim@aye-ai.org)
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/company/aye-solutions-sdn-bhd/)
 
