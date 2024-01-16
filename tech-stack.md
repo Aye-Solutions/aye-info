@@ -207,7 +207,7 @@ For any queries, suggestions, or further discussions, please feel free to reach 
 
 📧 Primary Email: hr@aye-ai.org
 
-📨 CC: mabidi@ayesolutions-sea.com
+📨 CC: mabidi@aye-ai.org
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/company/aye-solutions-sdn-bhd/)
 
