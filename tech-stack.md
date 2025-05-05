@@ -205,9 +205,8 @@ We're excited to have you on board and to be a part of your learning journey. Ou
 
 For any queries, suggestions, or further discussions, please feel free to reach out to us at:
 
-📧 Primary Email: hr@aye-ai.org
+📧 Primary Email: info@aye-ai.org
 
-📨 CC: mabidi@aye-ai.org
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/company/aye-solutions-sdn-bhd/)
 
