@@ -269,4 +269,4 @@ Security and compliance are treated as **continuous processes**, not one-time ce
 
 ## 13. Contact
 
-For security or compliance inquiries, please refer to the contact details listed on Aye’s official privacy and legal pages.
+For security or compliance inquiries, please contact via email privacy@aye-ai.org or reach out to us on Telegram t.me/paywithayeface 
