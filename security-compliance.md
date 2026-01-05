@@ -1,4 +1,10 @@
-# ![Aye Logo](https://aye-ai.org/favicon.ico) Aye â€” Security & Compliance
+
+
+![stack Cover](https://imgur.com/ouvTJ9D.jpg) 
+
+ ![Build Status](https://img.shields.io/badge/Version-1.1-important) ![Build Status](https://img.shields.io/badge/Date-03--01--26-blue) 
+ 
+ ## Aye - Security & Compliance
 
 ![GDPR Compliant](https://img.shields.io/badge/GDPR-Compliant-green?style=flat-square)
 ![ISO 27001 Ready](https://img.shields.io/badge/ISO_27001-Ready-blue?style=flat-square)
@@ -15,9 +21,9 @@ Security, privacy, and regulatory compliance are foundational principles in Ayeâ
 
 ---
 
-## 1. Company & Product Scope
+## 1. AyeFace Product Scope
 
-Aye operates a technology platform that enables:
+Aye operates AyeFace as a technology platform that enables:
 
 - Biometric-based user authentication (AyeFace)
 - Wallet and loyalty orchestration
