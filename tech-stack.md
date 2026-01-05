@@ -2,7 +2,7 @@
 
 ![stack Cover](https://imgur.com/ouvTJ9D.jpg) 
 
- ![Build Status](https://img.shields.io/badge/Version-1.1-important) ![Build Status](https://img.shields.io/badge/Date-23--10--23-blue)
+ ![Build Status](https://img.shields.io/badge/Version-1.1-important) ![Build Status](https://img.shields.io/badge/Date-27--10--25-blue)
 
 Explore the technological backbone of Aye on our GitHub. Discover codes that power Aye's innovation and see how we're shaping the future of technology.
 
