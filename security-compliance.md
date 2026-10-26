@@ -1,278 +1,184 @@
+# AyeFace Security & Compliance
 
+**Last reviewed:** 27 October 2026 · **Maintained by:** Aye Engineering · **Review cadence:** quarterly
 
-![stack Cover](https://imgur.com/ouvTJ9D.jpg) 
-
- ![Build Status](https://img.shields.io/badge/Version-1.1-important) ![Build Status](https://img.shields.io/badge/Date-03--01--26-blue) 
- 
- ## Aye - Security & Compliance
-
-![GDPR Compliant](https://img.shields.io/badge/GDPR-Compliant-green?style=flat-square)
-![ISO 27001 Ready](https://img.shields.io/badge/ISO_27001-Ready-blue?style=flat-square)
-![ISO 27701 Ready](https://img.shields.io/badge/ISO_27701-Ready-blue?style=flat-square)
-![Cloud Security](https://img.shields.io/badge/Cloud-Security-blueviolet?style=flat-square)
-![AI Governance](https://img.shields.io/badge/AI-Governance-orange?style=flat-square)
-![Biometric Security](https://img.shields.io/badge/Biometrics-Secure-lightgrey?style=flat-square)
-
-_Last updated: January 2026_
-
-This document provides a transparent overview of the security architecture, privacy controls, and global compliance posture of **Aye** and its products, including **AyeFace**, a biometric-enabled payment, wallet, and loyalty platform.
-
-Security, privacy, and regulatory compliance are foundational principles in Aye’s product design, technical architecture, and operational governance.
+This document sets out how Aye Global Holdings Pte. Ltd. ("Aye") protects people, merchants and data across
+**AyeFace**, our consent-based identity, loyalty and payments platform. It complements the
+[Security & Compliance](https://aye-ai.org/security) page and the [Privacy Policy](https://aye-ai.org/privacy),
+which are the authoritative statements of our commitments. For how the platform is built, see
+[ARCHITECTURE.md](ARCHITECTURE.md).
 
 ---
 
-## 1. AyeFace Product Scope
+## At a glance
 
-Aye operates AyeFace as a technology platform that enables:
-
-- Biometric-based user authentication (AyeFace)
-- Wallet and loyalty orchestration
-- Payment initiation through licensed financial institutions
-- AI-driven personalization and fraud risk detection
-
-Aye **is not a bank** and **does not directly settle funds**. Payment authorization and settlement are executed by **licensed merchant acquirers and payment service providers** in accordance with applicable financial regulations.
+| Area | Our position |
+|---|---|
+| **Biometrics** | Opt-in, consent-based and withdrawable · certified liveness on every scan · no face images kept by AyeFace · encrypted templates that cannot be turned back into a face |
+| **Privacy** | Aligned with GDPR and data-protection laws across Southeast Asia · data minimisation · user rights to access, correction and deletion |
+| **Payments** | Settled by licensed acquirers and schemes · tokenised credentials, no card numbers stored · strong customer authentication |
+| **Cloud** | Google Cloud in the Asia-Pacific region · posture monitoring in Security Command Center · least-privilege access |
+| **Cryptography** | TLS 1.3 in transit · AES-256 at rest · signing keys in Google Cloud KMS |
+| **Assurance** | Liveness tested to ISO/IEC 30107-3 · SOC 2-aligned controls, certification in progress · PCI-DSS-certified payment partners |
 
 ---
 
-## 2. Privacy & Data Protection Framework
+## 1. Scope
 
-### 2.1 Applicable Regulations
+AyeFace lets a person who chooses to enrol be recognised at a participating checkout, have their loyalty
+rewards applied, and pay with the method they choose, in one interaction. Aye is a technology provider. **Aye is
+not a bank and does not hold merchant funds.** Payment authorisation and settlement are carried out by licensed
+acquirers and payment schemes under their own regulation.
 
-Aye aligns its data protection practices with major global privacy frameworks, including:
+---
+
+## 2. Biometric data
+
+Biometric data is treated as sensitive personal data throughout.
+
+- **Consent first.** Enrolment is opt-in. Consent is the lawful basis for all biometric processing and can be
+  withdrawn at any time from the user portal. Every terminal also accepts cards, QR and wallets, so nobody has to
+  scan to pay.
+- **Certified liveness.** Every scan passes a certified liveness check, tested to ISO/IEC 30107-3, which confirms
+  a real person is present and resists printed photos, screen replays and masks.
+- **No face images kept.** The captured image is sent encrypted to the AyeFace recognition engine, operated with
+  a certified enterprise partner in the Asia-Pacific region, which creates or matches the person's template. The
+  image is deleted within 10 minutes. AyeFace's own systems store a reference to the template, not the image.
+- **Irreversible, encrypted templates.** Templates are encrypted at rest and cannot be turned back into a face.
+- **Careful matching.** Checkout does not guess between close candidates; an ambiguous match requires an extra
+  verification step before anything is paid.
+- **Merchants receive no biometric data.** Merchants see store activity and the customer's chosen payment
+  options, not images or templates.
+- **Purpose limitation.** Biometric data is used to recognise and authenticate the person and to improve the
+  accuracy and security of recognition and liveness, as described in the Privacy Policy. It is not used for
+  marketing or personalisation and is not sold.
+- **Deletion that reaches the engine.** Withdrawing consent or closing an account removes the template from the
+  recognition group as well as from AyeFace's own records, within 30 days.
+
+---
+
+## 3. Privacy and data protection
+
+AyeFace is designed to align with the data-protection laws of the markets we serve, including:
 
 - EU General Data Protection Regulation (GDPR)
-- Malaysia Personal Data Protection Act (PDPA)
-- Singapore Personal Data Protection Act (PDPA)
+- Malaysia Personal Data Protection Act 2010
+- Singapore Personal Data Protection Act 2012
+- Philippines Data Privacy Act of 2012
+- Thailand Personal Data Protection Act B.E. 2562
+- Vietnam Personal Data Protection Decree 13/2023/ND-CP
+- Indonesia Personal Data Protection Law No. 27/2022
+- Brunei Personal Data Protection Order 2021
 
-These frameworks govern the collection, processing, storage, transfer, and deletion of personal and biometric data.
+Across all of them we apply explicit consent for biometric data, purpose limitation, data minimisation, security
+by design and by default, and practical support for access, correction, deletion and consent withdrawal.
+Retention periods and cross-border transfers are set out in the [Privacy Policy](https://aye-ai.org/privacy).
 
-### 2.2 Data Protection Principles
-
-Across all systems, Aye applies:
-
-- **Explicit and informed consent**, especially for biometric data
-- **Purpose limitation** — data used only for stated functions
-- **Data minimisation**
-- **Security by design and by default**
-- **User rights enablement** (access, correction, deletion where applicable)
-
-### 2.3 Biometric Data Handling
-
-Biometric data is treated as **sensitive personal data**.
-
-- Raw facial images are **not stored**
-- Facial data is converted into **non-reversible mathematical templates**
-- Templates are encrypted and access-controlled
-- Processing occurs only after **explicit user opt-in**
-
-Biometric data is never sold, reused, or shared outside its stated purpose.
+Data from child and teen accounts is used only to operate the account and process transactions, with any
+improvement use subject to separate parental opt-in, as described in the Privacy Policy.
 
 ---
 
-## 3. AI Governance & Responsible Use
+## 4. Payments security
 
-Aye uses AI to support authentication, fraud detection, and personalization.
-
-### 3.1 AI Controls
-
-- Human oversight for critical decision paths
-- Continuous monitoring for performance, drift, and anomalies
-- Audit logging for AI-driven actions
-- Monitoring for bias and false-acceptance rates in biometric systems
-
-### 3.2 Regulatory Readiness
-
-Aye’s AI governance is designed to be compatible with emerging global AI regulations, emphasizing:
-
-- Transparency and traceability
-- Explainability where applicable
-- Accountability and risk-based controls
+- **Licensed rails.** Charges are routed to licensed acquirers or national QR schemes. Settlement remains with
+  the acquirer.
+- **Tokenisation.** Card details are captured on processors' hosted surfaces. We store provider tokens and
+  non-sensitive display data (brand, last four digits, expiry), not card numbers. Card processing is handled by
+  PCI-DSS-certified partners.
+- **Strong customer authentication.** When an issuer asks to re-authenticate a stored card, the bank challenge is
+  presented in the app or browser, and the outcome is confirmed through an idempotent verify path.
+- **Verified webhooks.** Provider webhooks are signature-verified, logged and reconciled against orders.
+- **A scan alone pays nothing.** Every payment needs a fresh live scan, and funds settle only to verified,
+  registered merchants.
 
 ---
 
-## 4. Fintech & Payments Compliance
+## 5. Cloud and infrastructure
 
-### 4.1 Payment Architecture
-
-- Payments are executed through **licensed banks and acquirers**
-- Aye acts as a **technology orchestration layer**
-- Aye does not store card numbers or bank credentials
-
-### 4.2 Financial Crime Risk Controls
-
-Aye supports ecosystem-level risk management through:
-
-- Identity verification workflows
-- Transaction anomaly detection
-- Fraud pattern analysis
-- Alignment with FATF AML/CFT best practices
-
-Final AML/KYC responsibility remains with licensed financial institutions.
+- **Google Cloud** in the Asia-Pacific region, on Kubernetes (GKE), with services deployed through GitOps so every
+  environment is declared in the repository.
+- **Separate environments** for development and production.
+- **Least-privilege access** through Identity and Access Management, with role-based access to production.
+- **Posture monitoring.** Google Cloud Security Command Center is used to detect misconfigurations,
+  vulnerabilities and threats, with findings reviewed and remediated.
+- **Resilience.** A 99.9% platform uptime target, excluding third-party bank and payment networks.
 
 ---
 
-## 5. Infrastructure & Cloud Security
+## 6. Cryptography
 
-### 5.1 Cloud Environment
-
-Aye operates primarily on **Google Cloud Platform (GCP)** using enterprise-grade security controls, including:
-
-- Zero-trust network principles
-- Network segmentation
-- Encryption at rest and in transit
-- Identity and Access Management (IAM)
-- Secure CI/CD pipelines
-
-### 5.2 Google Cloud Security Command Center
-
-Aye uses **Google Cloud Security Command Center (SCC)** as a centralized security management and posture monitoring platform to:
-
-- Detect infrastructure misconfigurations
-- Identify vulnerabilities and threats
-- Maintain continuous compliance visibility
-- Provide real-time security findings and alerts
-
-Security Command Center enables proactive risk detection, prioritization, and remediation across cloud assets.
+- **TLS 1.3** for data in transit.
+- **AES-256** for data at rest.
+- **Google Cloud KMS** for signing keys.
+- Secrets are kept out of source code.
 
 ---
 
-## 6. Cryptographic Standards
+## 7. Secure development
 
-Aye applies industry-recognized cryptographic standards, including:
-
-- **AES-256** for data at rest
-- **TLS 1.2 / TLS 1.3** for data in transit
-- **Public-key cryptography (ECC / RSA)** for authentication and signing
-- **Secure hashing (e.g. SHA-256 or stronger)** for integrity verification
-- Managed **Key Management Services (KMS)** and hardware-backed protection where available
-
-Cryptographic keys are never hardcoded in application logic.
+- **Continuous integration** with GitHub Actions on every change.
+- **SonarQube quality gates** and **Dependabot** for dependency and base-image updates.
+- **Contract tests.** Every payment gateway must pass the same shared contract test suite.
+- **Decisions of record.** Significant design choices are written down as Architecture Decision Records.
+- **Minimal containers.** Multi-stage images, with the newest services running as non-root.
 
 ---
 
-## 7. Blockchain-Based Security Architecture
+## 8. AI governance
 
-### 7.1 Purpose of Blockchain Usage
-
-Blockchain is used selectively as a **security and integrity layer**, not as a payment rail.
-
-Primary objectives include:
-
-- Tamper-evident audit trails
-- Non-repudiation of critical events
-- Cross-party trust without exposing sensitive data
-
-### 7.2 On-Chain vs Off-Chain Data
-
-**On-chain (hashed or encrypted references only):**
-
-- Consent proofs
-- Authentication or transaction event hashes
-- System integrity checkpoints
-- Configuration or model version fingerprints
-
-**Never stored on-chain:**
-
-- Biometric images or templates
-- Personal Identifiable Information (PII)
-- Payment credentials
-- Monetary transaction values
-
-All sensitive data remains **off-chain**, encrypted, and access-controlled.
-
-### 7.3 Biometric Integrity Verification
-
-Blockchain enables verification that:
-
-- Biometric templates have not been altered
-- User consent existed at the time of use
-- Authentication events are tamper-evident
-
-This enhances auditability without decentralizing personal data.
-
-### 7.4 Smart Contracts (If Applicable)
-
-Smart contracts, where used, are limited to:
-
-- Event verification
-- Timestamping
-- Integrity validation
-
-They **do not**:
-
-- Authorize payments
-- Transfer funds
-- Replace regulated financial institutions
+- **Review before effect.** AI suggests; merchants review changes before they go live.
+- **Biometric separation.** Personalisation uses transaction and preference data, not biometric templates.
+- **Agent access is scoped.** AI assistants and AI Agents reach AyeFace through the partner API and MCP under
+  scoped, revocable permissions.
 
 ---
 
-## 8. Biometric Liveness & Anti-Spoofing
+## 9. Logging, monitoring and incident response
 
-### 8.1 Tencent Liveness Detection
-
-Aye integrates **Tencent liveness detection technology** to mitigate biometric spoofing attacks, including:
-
-- Printed photos
-- Screen replays
-- Video injections
-- Mask-based impersonation
-
-Tencent’s liveness detection provides multi-dimensional facial analysis and real-time verification, significantly reducing false acceptance rates in physical and digital environments.
+- **Error tracking** with Sentry and **structured logging** with sensitive fields redacted. Logs do not contain
+  face images.
+- **Documented incident response** covering detection and containment, impact assessment, notification to
+  regulators and affected people where the law requires it, and root-cause remediation.
+- **Regular penetration testing** and vulnerability assessments.
 
 ---
 
-## 9. Information Security Standards Alignment
+## 10. Under development: blockchain integrity layer
 
-Aye aligns its internal controls with internationally recognized standards, including:
+We are developing a blockchain-anchored integrity layer, so that critical events can be shown to be unaltered
+and verified independently. It is not in production yet.
 
-- **ISO/IEC 27001** — Information Security Management
-- **ISO/IEC 27701** — Privacy Information Management
-- **ISO/IEC JTC 1/SC 37** — Biometrics standards
-- Secure Software Development Lifecycle (SSDLC) practices
-
-Formal certifications may be pursued as the organization scales.
-
----
-
-## 10. Incident Response & Monitoring
-
-Aye maintains documented incident response procedures covering:
-
-- Detection and containment
-- Impact assessment
-- Regulatory and stakeholder notification where required
-- Root cause analysis and remediation
-
-Security events are monitored continuously across infrastructure and application layers.
+- **What it records:** hashed or encrypted references only, such as consent proofs, authentication and
+  transaction event hashes, and configuration or model-version fingerprints.
+- **What stays off-chain:** biometric images and templates, personal data, payment credentials and transaction
+  values. These remain encrypted and access-controlled in our own systems.
+- **What it is not:** a payment rail. It does not authorise payments, transfer funds or replace regulated
+  financial institutions.
 
 ---
 
-## 11. User & Merchant Rights
+## 11. Standards
 
-Users and merchants are entitled to:
-
-- Transparency on data usage
-- Access and correction of personal data
-- Consent withdrawal where legally applicable
-- Secure deletion aligned with regulatory requirements
-
-Requests can be submitted through Aye’s official support channels.
+| Standard | Status |
+|---|---|
+| ISO/IEC 30107-3 (presentation attack detection) | Liveness tested to the standard |
+| SOC 2 Trust Service Criteria | Controls aligned; certification in progress |
+| ISO/IEC 27001 and ISO/IEC 27701 | Controls aligned |
+| PCI-DSS | Card processing by certified partners; no card numbers stored by AyeFace |
 
 ---
 
-## 12. Continuous Compliance & Governance
+## 12. Reporting a vulnerability
 
-Aye maintains ongoing compliance through:
-
-- Internal risk and security reviews
-- Third-party security assessments
-- Regulatory horizon scanning
-- Employee training on privacy and security
-
-Security and compliance are treated as **continuous processes**, not one-time certifications.
+If you believe you have found a security vulnerability, email **security@aye-ai.org**. We take every report
+seriously and aim to respond within 24 hours. Please give us reasonable time to fix an issue before disclosing
+it, and do not access or modify data that is not yours.
 
 ---
 
 ## 13. Contact
 
-For security or compliance inquiries, please contact via email privacy@aye-ai.org or reach out to us on Telegram [https://t.me/paywithayeface ](https://t.me/paywithayeface)
+- Privacy and data requests: **privacy@aye-ai.org**
+- Security: **security@aye-ai.org**
+- Everything else: [aye-ai.org/contact](https://aye-ai.org/contact) · [Telegram](https://t.me/paywithayeface)
