@@ -214,13 +214,30 @@ sequenceDiagram
 ## How we engineer
 
 - **Decisions of record.** Significant choices are written down as Architecture Decision Records. The merchant
-  portal alone carries 49, from session design to how a request is refused.
+  portal alone carries nearly 50, from session design to how a request is refused.
 - **Shared packages over copies.** Enums, constants, pure functions, the data layer and messaging live in
   shared packages, so services stop maintaining drifting copies.
 - **Boundaries enforced by tooling.** Module structure and import boundaries are lint rules, not conventions.
 - **Tests split by what breaks them.** Unit, integration and contract suites run per repository in CI; every
   payment gateway must pass the same contract tests.
 - **Feature flags.** Features ship behind flags and unlock per plan, store by store.
+
+---
+
+## Key decisions
+
+A few of the choices on record, with what each one cost us. Each record states the decision, the reason and
+the consequences, and is superseded by a new record rather than edited.
+
+| Decision | Why | What we accepted in return |
+|---|---|---|
+| **An opaque server-side session, not a stateless token.** The browser holds an id in an httpOnly cookie. | Revocation has to be immediate: a forced password reset, a 2FA reset or a permission change must end every session at once. A stateless token cannot be withdrawn before it expires. | One indexed read per request, on a tier that reads the database on every request anyway. Sessions are never cached, because a revoked session served from cache was not revoked. |
+| **Tenant scope is a type.** A request may name a workspace; only a resolver working from the verified session may grant one. | The request is client-controlled, so it can select but never authorise. Admins act across tenants, so a blanket "ignore the request" rule would break every admin screen. | There is no other way to construct a tenant context. Every module ships a cross-tenant test that expects 404, not 403, so a probe learns nothing about what exists. |
+| **Rate limits that guard a credential, a code or money fail closed.** General budgets fail open. | Failing open turns a cache outage into unlimited password guessing at exactly the moment the platform is degraded. Failing everything closed would take the whole portal down with the cache. | During a cache outage, sign-in, sign-up, resets and card charges pause until it ends. Every new limit must declare which way it fails. |
+| **New passwords are screened against known breaches**, using a k-anonymity range lookup: only the first five hex characters of a hash leave our servers. | Credential stuffing relies on reused leaked passwords. Composition rules are discouraged by NIST SP 800-63B, and offline top-N lists miss common variants. | The screen fails open: if the breach service is slow or down, the password is accepted and the event logged, because its uptime should not gate sign-up. |
+| **A price is an effective-dated version, never an edited value.** | Editing a price in place mis-charges: a scheduled change bills today, and an issued invoice could move if anything re-read the catalogue. | Every price read takes an "as of" date. A version already in effect is a fact and cannot be edited, only superseded. |
+| **We redact logs with our own deny-list**, matched at any depth and including the message text. | Path-based redaction cannot express "this field name, anywhere", and never sees the message, which is where an interpolated phone number or address is most likely to land. | We maintain the redaction walk ourselves rather than use the logging library's built-in option. |
+| **The audit log is append-only and partitioned by UTC month**, with a default partition as a backstop. | A partition bound written without a time zone resolves differently per environment, and a missing month would make Postgres refuse the insert and roll back the payment or approval that wrote it. | A maintenance job keeps a year of partitions ahead, and rows reaching the default partition raise an error-level alarm. |
 
 ---
 
