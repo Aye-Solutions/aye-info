@@ -38,12 +38,13 @@ Biometric data is treated as sensitive personal data throughout.
 
 - **Consent first.** Enrolment is opt-in. Consent is the lawful basis for all biometric processing and can be
   withdrawn at any time from the user portal. Every terminal also accepts cards, QR and wallets, so nobody has to
-  scan to pay.
+  scan to pay, and checkout continues with those methods if face recognition is unavailable.
 - **Certified liveness.** Every scan passes a certified liveness check, tested to ISO/IEC 30107-3, which confirms
   a real person is present and resists printed photos, screen replays and masks.
 - **No face images kept.** The captured image is sent encrypted to the AyeFace recognition engine, operated with
   a certified enterprise partner in the Asia-Pacific region, which creates or matches the person's template. The
-  image is deleted within 10 minutes. AyeFace's own systems store a reference to the template, not the image.
+  image is deleted automatically within 10 minutes. AyeFace holds the image in memory for the request only and
+  does not write it to a database or disk; our own systems store a reference to the template, not the image.
 - **Irreversible, encrypted templates.** Templates are encrypted at rest and cannot be turned back into a face.
 - **Careful matching.** Checkout does not guess between close candidates; an ambiguous match requires an extra
   verification step before anything is paid.
@@ -76,6 +77,17 @@ Retention periods and cross-border transfers are set out in the [Privacy Policy]
 
 Data from child and teen accounts is used only to operate the account and process transactions, with any
 improvement use subject to separate parental opt-in, as described in the Privacy Policy.
+
+### Data lifecycle
+
+| Data | Where | Protection | Kept for |
+|---|---|---|---|
+| Face capture | Memory only at AyeFace; the selected recognition engine(s) | TLS 1.3 | Deleted automatically within 10 minutes |
+| Recognition template | Partner engine, Asia-Pacific | Encrypted at rest, irreversible | Until consent is withdrawn or the account is closed, then deleted within 30 days |
+| Account data | PostgreSQL, Google Cloud | TLS 1.3, AES-256 | 7 years after closure ([Privacy Policy](https://aye-ai.org/privacy)) |
+| Transaction records | PostgreSQL, Google Cloud | TLS 1.3, AES-256 | 7 years |
+| Card details | Not stored; processor tokens only | Tokenised | For as long as the card stays linked |
+| Logs | Google Cloud | Sensitive fields redacted, no face images | |
 
 ---
 
