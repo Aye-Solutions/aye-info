@@ -97,7 +97,7 @@ sequenceDiagram
 ```
 
 The customer can always choose to pay without scanning; card, QR and wallet payments work at every
-touchpoint.
+touchpoint, and checkout continues with them if face recognition is unavailable.
 
 ---
 
@@ -152,7 +152,7 @@ sequenceDiagram
   read from the checkout session on the server, never from the client request.
 - **Matching.** Recognition runs on encrypted templates that cannot be turned back into a face, in an engine
   operated with a certified enterprise partner in the Asia-Pacific region. AyeFace stores a person ID per account,
-  not images, and each capture is deleted within 10 minutes.
+  not images. A capture is held in memory only for the request and deleted automatically within 10 minutes.
 - **Ambiguity handling.** Checkout does not guess between close candidates; an ambiguous match requires an extra
   verification step before anything is paid.
 - **Merchants receive no biometric data.** Merchants see store activity and the customer's chosen payment options.
